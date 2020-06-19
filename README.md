@@ -17,13 +17,13 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|prime_key: true|
-|username|string|null: false, unique: true|
+|name|string|null: false, unique: true|
 |email|string|null: false|
 |password|string|null: false|
-|groups_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_many :messages
+- has_many :users_groups
 - has_many :groups, through:  :users_groups
 
 ## messagesテーブル
