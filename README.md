@@ -36,8 +36,8 @@ Things you may want to cover:
 |group|references|null: false, foreign_key: true|
 
 ### Association
-- beloungs_to :user
-- beloungs_to :group
+- belongs_to :user
+- belongs_to :group
 
 ## groupsテーブル
 |Column|Type|Options|
@@ -58,8 +58,8 @@ Things you may want to cover:
 |users_id|integer|null: false, foreign_key: true|
 
 ### Association
-- beloungs_to :user
-- beloungs_to :group
+- belongs_to :user
+- belongs_to :group
 
 * Database initialization
 
