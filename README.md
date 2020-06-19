@@ -43,12 +43,11 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|prime_key: true|
-|group_name|string|null: false|
-|users_id|string|null: false, foreign_key: true|
-|message_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
 
 ### Association
 - has_many :messages
+- has_many :users_groups
 - has_many :users, through:  :users_groups
 
 ## users_groupsテーブル
