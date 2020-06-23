@@ -33,7 +33,7 @@
           &--cog{
             padding-left: 5px;
           }
-        }
+        }   
       } 
     }
     &__group-list{
@@ -57,10 +57,42 @@
   .main-bar{
     width: calc(100vw - 300px);
     background-color: #ffffff;
-    &__group-name {
+    &__head{
       height: 100px;
-      background-color: #ffffff;
-    } 
+      padding: 0 40px; 
+      display: flex;
+      justify-content: space-between;
+      a{
+       text-decoration: none;
+       color: #38aef0;
+      }
+      .main-bar__group-name{
+        font-size: 20px;
+        color: #333333;
+        margin-top: 35px;
+      }
+      .main-bar__members-list{
+        font-size: 12px;
+        color: #999999;
+        margin-top: 15px;
+        margin-right: 5px;
+        display: flex;
+        .main-bar__group-members{
+          padding-left: 5px;
+        }        
+      }
+      .main_bar__edit-btn{
+        width: 72px;
+        height: 40px;
+        border: 1px solid #38aef0;
+        padding: 0 20px;
+        line-height: 40px;
+        margin-top: 28px;
+        color: #38aef0;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    }  
     &__message-list{
       height: calc(100vh - 190px);
       background-color: #fafafa;  
@@ -71,4 +103,3 @@
     }
   }
 }
-
