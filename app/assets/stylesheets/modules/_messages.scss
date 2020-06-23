@@ -95,7 +95,31 @@
     }  
     &__message-list{
       height: calc(100vh - 190px);
-      background-color: #fafafa;  
+      background-color: #fafafa; 
+      padding: 35px 40px 0; 
+      .message-box{
+        margin-bottom: 46px;
+        flex-direction: column;
+        .message-info{
+          // margin: 40px 0 46px 35px;
+          display: flex;
+          &__user{
+            font-size: 16px;
+            color: #333333;
+            margin-right: 5px;
+          }
+          &__date{
+            font-size: 12px;
+            color: #999999;
+          }
+        }
+        .message-content{
+          margin-top: 12px;
+          color: #434a54;
+          font-size: 14px;
+        }
+      }
+      
     }
     &__message-form{
       height: 90px;
