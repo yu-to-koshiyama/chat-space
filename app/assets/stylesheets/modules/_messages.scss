@@ -7,6 +7,7 @@
 // サイドバー
   .side-bar{
     width: 300px;
+    font-weight: bold;
     background-color: #253141;
     &__user-name{
       height: 100px;
@@ -37,7 +38,18 @@
     }
     &__group-list{
       height: calc(100vh - 100px);
-      background-color: #2f3e51;  
+      background-color: #2f3e51;
+      .bottom-items{
+        color: #ffffff;
+        padding: 20px 20px 40px;
+        &__group{
+          font-size: 15px;
+        }
+        &__message{
+          margin-top: 5px;
+          font-size: 11px;
+        } 
+      }
     }
   }
 
