@@ -119,11 +119,42 @@
           font-size: 14px;
         }
       }
-      
     }
     &__message-form{
       height: 90px;
       background-color: #d2d2d2;  
+    .form__contents{
+      display: flex;
+      padding: 20px 40px;
+      .form__input-box{
+        position: relative;
+        width: calc(100vw - 380px);
+        .form__input-text{
+          height: 50px;
+          width: 100%;
+          padding-left: 10px;
+          border: none;
+        }
+        .form__input-image{ 
+          position: absolute;
+          right: 10px;
+          top: 15px;
+          input{
+            display: none;
+          }
+        }
+      }
+      .form__submit-btn{
+        height: 50px;
+        background-color: #38aef0;
+        color: #ffffff;
+        padding: 0 30px;
+        font-size: 16px;
+        line-height: 40px;
+        border: none;
+        margin-left: 15px;
+        }
+      }
     }
   }
 }

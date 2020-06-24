@@ -18,3 +18,10 @@
       .message-content おはよう！
       
   .main-bar__message-form
+    %form.form__contents
+      .form__input-box
+        %input.form__input-text{"placeholder": "type a message", "type": "text"}
+        %label{class: "form__input-image"}
+          = icon('far', 'image')
+          %input{type: "file"}
+      %input.form__submit-btn{"name": "commit", "type": "submit", "value": "Send"}
