@@ -1,1 +1,27 @@
-＜チャット画面＞
+.main-bar
+  .main-bar__head
+    .maim-bar__top-items
+      .main-bar__group-name 
+        test
+      .main-bar__members-list 
+        Member:
+        .main-bar__group-members
+          masa
+    .main_bar__edit-btn 
+      = link_to 'Edit', '#'
+
+  .main-bar__message-list
+    .message-box
+      .message-info
+        .message-info__user masa
+        .message-info__date 2019/06/23(Tue)20:00:00
+      .message-content おはよう！
+      
+  .main-bar__message-form
+    %form.form__contents
+      .form__input-box
+        %input.form__input-text{"placeholder": "type a message", "type": "text"}
+        %label{class: "form__input-image"}
+          = icon('far', 'image')
+          %input{type: "file"}
+      %input.form__submit-btn{"name": "commit", "type": "submit", "value": "Send"}
