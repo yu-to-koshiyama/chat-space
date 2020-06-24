@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+// ベースフォントサイズ
+$base_font: 16px;
+// ボタンで使用する色
+$btn-color: #38aef0;
+// side-barのフォントの色
+$side-bar-font-color: #ffffff;
+
 .wrapper {
   display: flex;
 // サイドバー
@@ -17,11 +24,11 @@
         height: 20px;
         width: 260px;
         margin: 0 20px;
-        color: #ffffff;
+        color: $side-bar-font-color;
         display: flex;
         justify-content: space-between;
         &__name{
-          font-size: 16px;
+          font-size: $base_font;
         }
         &__icons{
           display: flex;
@@ -40,7 +47,7 @@
       height: calc(100vh - 100px);
       background-color: #2f3e51;
       .bottom-items{
-        color: #ffffff;
+        color: $side-bar-font-color;
         padding: 20px 20px 40px;
         &__group{
           font-size: 15px;
@@ -64,7 +71,7 @@
       justify-content: space-between;
       a{
        text-decoration: none;
-       color: #38aef0;
+       color: $btn-color;
       }
       .main-bar__group-name{
         font-size: 20px;
@@ -84,12 +91,12 @@
       .main_bar__edit-btn{
         width: 72px;
         height: 40px;
-        border: 1px solid #38aef0;
+        border: 1px solid $btn-color;
         padding: 0 20px;
         line-height: 40px;
         margin-top: 28px;
-        color: #38aef0;
-        font-size: 16px;
+        color: btn-color;
+        font-size: $base_font;
         cursor: pointer;
       }
     }  
@@ -101,10 +108,9 @@
         margin-bottom: 46px;
         flex-direction: column;
         .message-info{
-          // margin: 40px 0 46px 35px;
           display: flex;
           &__user{
-            font-size: 16px;
+            font-size: $base_font;
             color: #333333;
             margin-right: 5px;
           }
@@ -123,38 +129,39 @@
     &__message-form{
       height: 90px;
       background-color: #d2d2d2;  
-    .form__contents{
-      display: flex;
-      padding: 20px 40px;
-      .form__input-box{
-        position: relative;
-        width: calc(100vw - 380px);
-        .form__input-text{
-          height: 50px;
-          width: 100%;
-          padding-left: 10px;
-          border: none;
-        }
-        .form__input-image{ 
-          position: absolute;
-          right: 10px;
-          top: 15px;
-          input{
-            display: none;
+      .form__contents{
+        display: flex;
+        padding: 20px 40px;
+        .form__input-box{
+          position: relative;
+          width: calc(100vw - 380px);
+          .form__input-text{
+            height: 50px;
+            width: 100%;
+            padding: 0 45px 0 10px;
+            border: none;
+          }
+          .form__input-image{ 
+            position: absolute;
+            font-size: 1.5em;
+            right: 10px;
+            top: 13px;
+            input{
+              display: none;
+            }
           }
         }
-      }
-      .form__submit-btn{
-        height: 50px;
-        background-color: #38aef0;
-        color: #ffffff;
-        padding: 0 30px;
-        font-size: 16px;
-        line-height: 40px;
-        border: none;
-        margin-left: 15px;
+        .form__submit-btn{
+          height: 50px;
+          background-color: $btn-color;
+          color: #ffffff;
+          padding: 0 30px;
+          font-size: $base_font;
+          line-height: 40px;
+          border: none;
+          margin-left: 15px;
+          }
         }
-      }
     }
   }
 }
