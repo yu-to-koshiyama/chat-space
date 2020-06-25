@@ -49,11 +49,15 @@ $side-bar-font-color: #ffffff;
       .bottom-items{
         color: $side-bar-font-color;
         padding: 20px 20px 40px;
+        a{
+          text-decoration: none;
+          color: $side-bar-font-color;
+        }
         &__group{
           font-size: 15px;
         }
         &__message{
-          margin-top: 5px;
+        margin-top: 5px;
           font-size: 11px;
         } 
       }
