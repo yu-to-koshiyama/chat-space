@@ -6,9 +6,8 @@
       .main-bar__members-list 
         Member:
         - @group.users.each do |user|
-          = user.name
-    .main_bar__edit-btn 
-      = link_to 'Edit', edit_group_path("groups/edit")
+          = user.name 
+    = link_to 'Edit', edit_group_path(@group.id), class: 'main_bar__edit-btn'
   .main-bar__message-list
     .message-box
       = render partial: 'messages', collection: @messages
