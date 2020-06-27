@@ -18,3 +18,5 @@ module ChatSpace
     config.i18n.default_locale = :ja  
   end
 end
+
+ActiveSupport::Deprecation.silenced = true if Rails.version == '6.0.3.2'
