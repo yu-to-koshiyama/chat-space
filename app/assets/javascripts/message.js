@@ -58,5 +58,9 @@ $(function () {
         $('.main-bar__message-list').animate({ scrollTop: $('.main-bar__message-list')[0].scrollHeight });
         $(".Form__submit").prop('disabled', false);
       })
+      .fail(function () {
+        alert("メッセージ送信に失敗しました");
+        $(".Form__submit").prop('disabled', false);
+      });
   });
 });
