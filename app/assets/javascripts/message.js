@@ -51,15 +51,18 @@ $(function () {
       processData: false,
       contentType: false
     })
+      // $(".Form__submit").always('submit', function () {
+      //   $(this).prop('disabled', false)
+      // })
       .done(function (data) {
         let html = buildHTML(data);
         $(".main-bar__message-list").append(html);
         $('form')[0].reset();
         $('.main-bar__message-list').animate({ scrollTop: $('.main-bar__message-list')[0].scrollHeight });
-        $(".Form__submit").prop('disabled', false);
       })
       .fail(function () {
         alert("メッセージ送信に失敗しました");
+      }).always(function () {
         $(".Form__submit").prop('disabled', false);
       });
   });
