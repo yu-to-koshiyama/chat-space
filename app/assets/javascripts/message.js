@@ -51,9 +51,6 @@ $(function () {
       processData: false,
       contentType: false
     })
-      // $(".Form__submit").always('submit', function () {
-      //   $(this).prop('disabled', false)
-      // })
       .done(function (data) {
         let html = buildHTML(data);
         $(".main-bar__message-list").append(html);
