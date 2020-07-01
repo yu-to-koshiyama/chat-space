@@ -18,8 +18,6 @@ $(function () {
                               <img class="message__image" src="${message.image.url}">
                           </div>
                   </div>`
-      console.log(html)
-      console.log("image")
       return html;
     } else {
       let html =
@@ -38,8 +36,6 @@ $(function () {
                       </p>
                     </div>
                   </div>`
-      console.log(html)
-      console.log("body")
       return html;
     };
   }
@@ -56,10 +52,11 @@ $(function () {
       contentType: false
     })
       .done(function (data) {
-        console.log(data);
         let html = buildHTML(data);
         $(".main-bar__message-list").append(html);
         $('form')[0].reset();
+        $('.main-bar__message-list').animate({ scrollTop: $('.main-bar__message-list')[0].scrollHeight });
+        $(".Form__submit").prop('disabled', false);
       })
   });
 });
