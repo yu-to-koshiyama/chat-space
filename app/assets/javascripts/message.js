@@ -1,7 +1,8 @@
 $(function () {
   function buildHTML(message) {
-    if (message.image) {
-      let html = `<div class="message-box">
+    if (message.image.url) {
+      let html =
+        `<div class="message-box">
                               <div class="message-info">
                                 <div class="message-info__user">
                                   ${message.user_name}
@@ -14,12 +15,15 @@ $(function () {
                               <p class="message__body">
                                 ${message.body}
                               </p>
-                              <img class="message__image" src="${message.image}">
+                              <img class="message__image" src="${message.image.url}">
                           </div>
                   </div>`
+      console.log(html)
+      console.log("image")
       return html;
     } else {
-      let html = `<div class="message-box">
+      let html =
+        `<div class="message-box">
                     <div class="message-info">
                       <div class="message-info__user">
                         ${message.user_name}
@@ -34,6 +38,8 @@ $(function () {
                       </p>
                     </div>
                   </div>`
+      console.log(html)
+      console.log("body")
       return html;
     };
   }
@@ -50,7 +56,10 @@ $(function () {
       contentType: false
     })
       .done(function (data) {
+        console.log(data);
         let html = buildHTML(data);
+        $(".main-bar__message-list").append(html);
+        $('form')[0].reset();
       })
   });
 });
