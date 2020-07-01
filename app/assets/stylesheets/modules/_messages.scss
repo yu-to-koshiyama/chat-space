@@ -74,8 +74,8 @@ $side-bar-font-color: #ffffff;
       display: flex;
       justify-content: space-between;
       a{
-       text-decoration: none;
-       color: $btn-color;
+        text-decoration: none;
+        color: $btn-color;
       }
       .main-bar__group-name{
         font-size: 20px;
@@ -108,11 +108,10 @@ $side-bar-font-color: #ffffff;
       height: calc(100vh - 190px);
       background-color: #fafafa; 
       padding: 35px 40px 0; 
-      overflow: auto;
+      overflow: scroll;
       .message-box{
         margin-bottom: 46px;
         flex-direction: column;
-       
         .message-info{
           display: flex;
           &__user{
@@ -134,20 +133,22 @@ $side-bar-font-color: #ffffff;
     }
     &__message-form{
       height: 90px;
-      background-color: #d2d2d2;  
-      .Form__contents{
+      background-color: #d2d2d2; 
+      padding: 20px 50px 20px 40px;
+      .Form{
+        width: 100%;
         display: flex;
-        padding: 20px 40px;
-        .Form__input-box{
+        justify-content: space-between;
+        .Form__contents{
           position: relative;
-          width: calc(100vw - 380px);
-          .Form__input-text{
+          width: 100%;
+          .Form__contents-text{
             height: 50px;
             width: 100%;
             padding: 0 45px 0 10px;
             border: none;
           }
-          .Form__input-image{ 
+          .Form__contents-image{ 
             position: absolute;
             font-size: 1.5em;
             right: 10px;
@@ -157,7 +158,7 @@ $side-bar-font-color: #ffffff;
             }
           }
         }
-        .Form__submit-btn{
+        .Form__submit{
           height: 50px;
           background-color: $btn-color;
           color: #ffffff;
