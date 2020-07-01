@@ -12,11 +12,11 @@
     .message-box
       = render partial: 'messages', collection: @messages
   .main-bar__message-form
-    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
-      .Form__contents
-        .Form__input-box
-          = f.text_field :body, class: 'Form__input-text', placeholder: 'type a message'
-          = f.label :image, class: 'Form__input-image' do
+    .Form
+      = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
+        .Form__contents
+          = f.text_field :body, class: 'Form__contents-text', placeholder: 'type a message'
+          = f.label :image, class: 'Form__contents-image' do
             = icon('far', 'image', class: 'Form__icon')
             = f.file_field :image, class: 'Hidden'
-        = f.submit 'Send', class: 'Form__submit-btn'
+        = f.submit 'Send', class: 'Form__submit'
