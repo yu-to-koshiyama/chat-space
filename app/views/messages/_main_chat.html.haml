@@ -12,7 +12,6 @@
     .message-box
       = render partial: 'messages', collection: @messages
   .main-bar__message-form
-    -# .Form
     = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
       .Form__contents
         = f.text_field :body, class: 'Form__contents-text', placeholder: 'type a message'
