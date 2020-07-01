@@ -74,8 +74,8 @@ $side-bar-font-color: #ffffff;
       display: flex;
       justify-content: space-between;
       a{
-       text-decoration: none;
-       color: $btn-color;
+        text-decoration: none;
+        color: $btn-color;
       }
       .main-bar__group-name{
         font-size: 20px;
@@ -108,7 +108,7 @@ $side-bar-font-color: #ffffff;
       height: calc(100vh - 190px);
       background-color: #fafafa; 
       padding: 35px 40px 0; 
-      overflow: auto;
+      overflow: scroll;
       .message-box{
         margin-bottom: 46px;
         flex-direction: column;
