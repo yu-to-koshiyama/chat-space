@@ -10,7 +10,7 @@ $(function () {
                 `;
     user_list.append(html);
   }
-  function appendErrMsgToHTML() {
+  function appendNoUser() {
     let html = `
                 <div class="ChatMember clearfix">
                   <p class="ChatMember__name">ユーザーが見つかりません</p>
@@ -19,10 +19,20 @@ $(function () {
     user_list.append(html);
   }
 
+  function addChatMember(name, id) {
+    let html = `
+                  <div class="ChatMember">
+                    <p class="ChatMember__name">${name}</p>
+                    <input name="group[user_ids][]" type="hidden" value=${id} />
+                    <div class="ChatMember__remove ChatMember__button">削除</div>
+                  </div>
+                  `;
+    $(".ChatMembers").append(html)
+  };
+
   $('#UserSearch__field').on('keyup', function (e) {
     e.preventDefault()
     let input = $('#UserSearch__field').val();
-    console.log(input)
     $.ajax({
       url: "/users",
       type: "GET",
@@ -30,18 +40,26 @@ $(function () {
       dataType: 'json'
     })
       .done(function (users) {
-        $("#UserSearchResult").empty()
+        user_list.empty();
         if (users.length !== 0) {
-          users.foreach(function (user) {
+          users.forEach(function (user) {
             appendUser(user);
           })
+        } else if (users.length == 0) {
+          return false;
         } else {
-          appendErrMsgToHTML();
+          appendNoUser();
         }
-        console.log("成功です");
       })
       .fail(function () {
-        console.log("失敗です");
+        alert("通信エラーです。ユーザーが表示できません");
       })
   });
+  $("#UserSearchResult").on('click', ".ChatMember__add", function (e) {
+    $(this).parent("div").remove();
+    let user_id = $(this).data('user-id');
+    let user_name = $(this).data('user-name');
+    addChatMember(user_name, user_id);
+  });
+
 });
