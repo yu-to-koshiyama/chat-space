@@ -9,8 +9,7 @@
           = user.name 
     = link_to 'Edit', edit_group_path(@group.id), class: 'main_bar__edit-btn'
   .main-bar__message-list
-    .message-box
-      = render partial: 'messages', collection: @messages
+    = render partial: 'messages', collection: @messages
   .main-bar__message-form
     = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
       .Form__contents
