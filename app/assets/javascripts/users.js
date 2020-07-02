@@ -57,9 +57,11 @@ $(function () {
   });
   $("#UserSearchResult").on('click', ".ChatMember__add", function (e) {
     $(this).parent("div").remove();
-    let user_id = $(this).data('user-id');
-    let user_name = $(this).data('user-name');
+    const user_id = $(this).data('user-id');
+    const user_name = $(this).data('user-name');
     addChatMember(user_name, user_id);
   });
-
+  $(".ChatMembers").on('click', ".ChatMember__remove", function (e) {
+    $(this).parent("div").remove();
+  });
 });
