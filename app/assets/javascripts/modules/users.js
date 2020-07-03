@@ -1,6 +1,5 @@
 $(function () {
   let user_list = $("#UserSearchResult");
-
   function appendUser(user) {
     let html = `
                 <div class="ChatMember clearfix">
@@ -27,24 +26,23 @@ $(function () {
                     <div class="ChatMember__remove ChatMember__button">削除</div>
                   </div>
                   `;
-    $(".ChatMembers").append(html)
-  };
-
-  $('#UserSearch__field').on('keyup', function (e) {
-    e.preventDefault()
-    let input = $('#UserSearch__field').val();
+    $(".ChatMembers").append(html);
+  }
+  $("#UserSearch__field").on("keyup", function (e) {
+    e.preventDefault();
+    let input = $("#UserSearch__field").val();
     $.ajax({
       url: "/users",
       type: "GET",
       data: { keyword: input },
-      dataType: 'json'
+      dataType: "json",
     })
       .done(function (users) {
         user_list.empty();
         if (users.length !== 0) {
           users.forEach(function (user) {
             appendUser(user);
-          })
+          });
         } else if (users.length == 0) {
           return false;
         } else {
@@ -53,15 +51,15 @@ $(function () {
       })
       .fail(function () {
         alert("通信エラーです。ユーザーが表示できません");
-      })
+      });
   });
-  $("#UserSearchResult").on('click', ".ChatMember__add", function (e) {
+  $("#UserSearchResult").on("click", ".ChatMember__add", function (e) {
     $(this).parent("div").remove();
-    const user_id = $(this).data('user-id');
-    const user_name = $(this).data('user-name');
+    const user_id = $(this).data("user-id");
+    const user_name = $(this).data("user-name");
     addChatMember(user_name, user_id);
   });
-  $(".ChatMembers").on('click', ".ChatMember__remove", function (e) {
+  $(".ChatMembers").on("click", ".ChatMember__remove", function (e) {
     $(this).parent("div").remove();
   });
 });

@@ -1,8 +1,7 @@
 $(function () {
   function buildHTML(message) {
     if (message.image.url) {
-      let html =
-        `<div class="message-box">
+      let html = `<div class="message-box" data-message-id=${message.id}>
                               <div class="message-info">
                                 <div class="message-info__user">
                                   ${message.user_name}
@@ -17,11 +16,10 @@ $(function () {
                               </p>
                               <img class="message__image" src="${message.image.url}">
                           </div>
-                  </div>`
+                  </div>`;
       return html;
     } else {
-      let html =
-        `<div class="message-box">
+      let html = `<div class="message-box" data-message-id=${message.id}>
                     <div class="message-info">
                       <div class="message-info__user">
                         ${message.user_name}
@@ -35,32 +33,35 @@ $(function () {
                         ${message.body}
                       </p>
                     </div>
-                  </div>`
+                  </div>`;
       return html;
-    };
+    }
   }
-  $('.Form').on('submit', function (e) {
-    e.preventDefault()
+  $(".Form").on("submit", function (e) {
+    e.preventDefault();
     let formData = new FormData(this);
-    let url = $(this).attr('action');
+    let url = $(this).attr("action");
     $.ajax({
       url: url,
       type: "POST",
       data: formData,
-      dataType: 'json',
+      dataType: "json",
       processData: false,
-      contentType: false
+      contentType: false,
     })
       .done(function (data) {
         let html = buildHTML(data);
         $(".main-bar__message-list").append(html);
-        $('form')[0].reset();
-        $('.main-bar__message-list').animate({ scrollTop: $('.main-bar__message-list')[0].scrollHeight });
+        $("form")[0].reset();
+        $(".main-bar__message-list").animate({
+          scrollTop: $(".main-bar__message-list")[0].scrollHeight,
+        });
       })
       .fail(function () {
         alert("メッセージ送信に失敗しました");
-      }).always(function () {
-        $(".Form__submit").prop('disabled', false);
+      })
+      .always(function () {
+        $(".Form__submit").prop("disabled", false);
       });
   });
 });
